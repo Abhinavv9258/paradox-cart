@@ -9,13 +9,18 @@ import {
     Toolbar,
     Typography,
     Button,
+    Divider,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemText,
 } from '@mui/material';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import { scroller } from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
 
-import ScrollTop from '../components/NavbarComponents/ScrollTop';
-import drawer from '../components/NavbarComponents/Drawer';
+import ScrollTop from './ScrollTop';
 
 const drawerWidth = 240;
 
@@ -37,6 +42,51 @@ const Navbar = () => {
         });
         setMobileOpen(false);
     };
+    const drawer = (
+        <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="h6" sx={{ my: 2 }}>
+                MUI
+            </Typography>
+            <Divider />
+            <List>
+                <ListItem onClick={handleDrawerToggle} disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary='Home' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem onClick={handleDrawerToggle} disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary='About' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem onClick={handleDrawerToggle} disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary='Contact' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem onClick={() => handleSectionClick('section1')} disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary='Section1' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem onClick={() => handleSectionClick('section2')} disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary='Section2' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem onClick={() => handleSectionClick('section3')} disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary='Section3' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem onClick={() => handleSectionClick('section4')} disablePadding>
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemText primary='Section4' />
+                    </ListItemButton>
+                </ListItem>
+            </List>
+        </Box>
+    );
 
     return (
         <>
@@ -62,12 +112,6 @@ const Navbar = () => {
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         <Button sx={{ color: '#fff' }}>
                             Home
-                        </Button>
-                        <Button sx={{ color: '#fff' }}>
-                            About
-                        </Button>
-                        <Button sx={{ color: '#fff' }}>
-                            Contact
                         </Button>
                         <Button onClick={() => handleSectionClick('section1')} sx={{ color: '#fff' }}>
                             Section1
