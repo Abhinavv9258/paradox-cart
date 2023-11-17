@@ -22,6 +22,8 @@ import { useNavigate } from 'react-router-dom';
 
 import ScrollTop from './ScrollTop';
 
+import Logo from '../assets/images/logo.png'
+
 const drawerWidth = 240;
 
 const Navbar = () => {
@@ -45,7 +47,8 @@ const Navbar = () => {
     const drawer = (
         <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
+                <img src={Logo} style={{ height: '50px', width: '50px' }} />
+                Paradox Cart
             </Typography>
             <Divider />
             <List>
@@ -79,11 +82,6 @@ const Navbar = () => {
                         <ListItemText primary='Section3' />
                     </ListItemButton>
                 </ListItem>
-                <ListItem onClick={() => handleSectionClick('section4')} disablePadding>
-                    <ListItemButton sx={{ textAlign: 'center' }}>
-                        <ListItemText primary='Section4' />
-                    </ListItemButton>
-                </ListItem>
             </List>
         </Box>
     );
@@ -91,10 +89,10 @@ const Navbar = () => {
     return (
         <>
             <CssBaseline />
-            <AppBar component="nav">
+            <AppBar component="nav" sx={{ color: '#F0B05D', backgroundColor: '#F0B05D' }}>
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        // color="inherit"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
@@ -105,9 +103,10 @@ const Navbar = () => {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, color: 'white' }}
                     >
-                        MUI
+                        <img src={Logo} style={{height:'50px', width:'50px'}} />
+                        Paradox Cart
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         <Button sx={{ color: '#fff' }}>
@@ -119,11 +118,8 @@ const Navbar = () => {
                         <Button onClick={() => handleSectionClick('section2')} sx={{ color: '#fff' }}>
                             Section2
                         </Button>
-                        <Button onClick={() => handleSectionClick('section3')} sx={{ color: '#fff' }}>
-                            Section3
-                        </Button>
-                        <Button onClick={() => handleSectionClick('section4')} sx={{ color: '#fff' }}>
-                            Section4
+                        <Button sx={{ color: '#fff' }}>
+                            LogIn/SignUp
                         </Button>
                     </Box>
                 </Toolbar>
